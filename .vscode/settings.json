@@ -1,0 +1,21 @@
+{
+    "redhat.telemetry.enabled": true,
+    "security.workspace.trust.untrustedFiles": "open",
+    "python.defaultInterpreterPath": "c:\\Program Files\\Python313\\python.exe",
+    "explorer.confirmDelete": false,
+    "workbench.editor.enablePreviewFromCodeNavigation": true,
+    "workbench.editor.enablePreviewFromQuickOpen": true,
+    "editor.overtypeCursorStyle": "line",
+    "workbench.colorTheme": "Light+",
+    "vscode-edge-devtools.webhint": false,
+    "workbench.editor.enablePreview": false,
+    "liveServer.settings.donotShowInfoMsg": true,
+    "[typescriptreact]": {},
+    "claudeCode.preferredLocation": "panel",
+    "css.lint.unknownAtRules": "ignore",
+    "json.schemaDownload.enable": true,
+    "workbench.trustedDomains": [
+        "https://ui.shadcn.com",
+        "https://*.shadcn.com"
+    ]
+}

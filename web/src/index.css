@@ -1,0 +1,196 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 98%;
+    --foreground: 220 13% 13%;
+    --card: 0 0% 100%;
+    --card-foreground: 220 13% 13%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 13% 13%;
+    --primary: 59 89% 56%;
+    --primary-foreground: 0 0% 13%;
+    --secondary: 280 85% 55%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 220 13% 91%;
+    --muted-foreground: 220 13% 40%;
+    --accent: 180 100% 50%;
+    --accent-foreground: 0 0% 13%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 220 13% 91%;
+    --input: 220 13% 95%;
+    --ring: 59 89% 56%;
+    --radius: 0.5rem;
+
+    /* Semantic Stack Colors */
+    --frontend: 217 91% 60%;
+    --frontend-foreground: 0 0% 100%;
+    --backend: 270 60% 55%;
+    --backend-foreground: 0 0% 100%;
+    --database: 142 71% 45%;
+    --database-foreground: 0 0% 100%;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+
+    /* Animation Tokens */
+    --animation-duration-fast: 200ms;
+    --animation-duration-normal: 300ms;
+    --animation-duration-slow: 500ms;
+    --animation-ease-out: cubic-bezier(0.4, 0, 0.2, 1);
+    --animation-ease-in: cubic-bezier(0.4, 0, 1, 1);
+    --animation-ease-spring: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+
+  .dark {
+    --background: 220 13% 10%;
+    --foreground: 0 0% 95%;
+    --card: 220 13% 13%;
+    --card-foreground: 0 0% 95%;
+    --popover: 220 13% 13%;
+    --popover-foreground: 0 0% 95%;
+    --primary: 59 89% 56%;
+    --primary-foreground: 0 0% 13%;
+    --secondary: 280 85% 55%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 220 13% 20%;
+    --muted-foreground: 220 13% 60%;
+    --accent: 180 100% 50%;
+    --accent-foreground: 0 0% 13%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 220 13% 20%;
+    --input: 220 13% 20%;
+    --ring: 59 89% 56%;
+
+    /* Semantic Stack Colors */
+    --frontend: 217 91% 60%;
+    --frontend-foreground: 0 0% 100%;
+    --backend: 270 60% 65%;
+    --backend-foreground: 0 0% 100%;
+    --database: 142 70% 50%;
+    --database-foreground: 0 0% 13%;
+
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: "DM Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    overflow-x: clip;
+    font-feature-settings: "kern" 1;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    text-wrap: balance;
+  }
+
+  p {
+    max-width: 65ch;
+  }
+
+  @keyframes fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes slide-up {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes scale-in {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+  }
+}
+
+@layer utilities {
+  .transition-all {
+    transition-property: all;
+    transition-timing-function: var(--animation-ease-out);
+    transition-duration: var(--animation-duration-normal);
+  }
+  
+  .animate-fade-in {
+    animation: fade-in var(--animation-duration-normal) var(--animation-ease-out) forwards;
+  }
+
+  .animate-slide-up {
+    animation: slide-up var(--animation-duration-normal) var(--animation-ease-out) forwards;
+  }
+
+  .animate-scale-in {
+    animation: scale-in var(--animation-duration-normal) var(--animation-ease-spring) forwards;
+  }
+  
+  .bg-frontend { background-color: hsl(var(--frontend)); }
+  .text-frontend { color: hsl(var(--frontend)); }
+  .border-frontend { border-color: hsl(var(--frontend)); }
+  .border-t-frontend { border-top-color: hsl(var(--frontend)); }
+  
+  .bg-backend { background-color: hsl(var(--backend)); }
+  .text-backend { color: hsl(var(--backend)); }
+  .border-backend { border-color: hsl(var(--backend)); }
+  .border-t-backend { border-top-color: hsl(var(--backend)); }
+  
+  .bg-database { background-color: hsl(var(--database)); }
+  .text-database { color: hsl(var(--database)); }
+  .border-database { border-color: hsl(var(--database)); }
+  .border-t-database { border-top-color: hsl(var(--database)); }
+}
+
+@media print {
+  body {
+    background: white;
+    color: black;
+  }
+  .print\:hidden {
+    display: none !important;
+  }
+  .print\:border-none {
+    border: none !important;
+  }
+  .print\:shadow-none {
+    box-shadow: none !important;
+  }
+  .print\:break-before-page {
+    page-break-before: always;
+  }
+  .print\:break-inside-avoid {
+    page-break-inside: avoid;
+  }
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+}
